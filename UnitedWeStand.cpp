@@ -31,29 +31,6 @@ int main()
             maxi = max(maxi,a[i]);
         }
 
-        // for(i,0,n-1){
-        //   for(j,i+1,n){
-        //      if(a[i]%a[j]!=0){
-        //    // b.push_back(a[i]);
-        //     c.push_back(a[j]);
-        //     break;
-        //   }
-
-        //   else if(a[j]%a[i]==0){
-        //     //b.push_back(a[j]);
-        //     c.push_back(a[j]);
-        //     break;
-        //   }
-        //   else {
-        //     b.push_back(a[i]);
-        //     break;
-        //   }
-        //   }
-        // }
-
-         
-        
-       // b.push_back(a[0]);
          for(i,0,n){
             if(a[i]==maxi){
                 c.push_back(a[i]);
@@ -78,7 +55,7 @@ if(b.size()==0 || c.size()==0){
             cout<<c[i]<<" ";
         }
 
-        nn;
+     nn;
  }      
  
     }
