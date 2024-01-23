@@ -1,4 +1,2 @@
-  else {
-    count1=0;
-    continue;
-  }
+
+        if((a+b+c)%2==0) 
