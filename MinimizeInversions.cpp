@@ -40,68 +40,20 @@ int main()
      ll ca=0;
      ll cb = 0;
      
-    
-        // for(i,0,n){
-        //     for(j,i,n){
-        //         if(a[i]>a[j]){
-        //            swap(a[i],a[j]);
-        //             swap(b[i],b[j]);
-        //         }
-        //          if(b[i]>b[j]){
-        //             swap(a[i],a[j]);
-        //             swap(b[i],b[j]);
-                   
-        //         }
-        //     }
-        // }
+     vector<pair<ll,ll>> x;
+     
+     for(i,0,n){
+        x.push_back(make_pair(a[i],b[i]));
+     }
         
-        // sort(a.begin(),a.end());
-        // sort(b.begin(),b.end());
-        // cout<<" ca "<<ca<<" cb "<<cb<<endl;
-
-
-        bool ss ;
-         for(i,0,n){
-            ss =false;
-            for(j,0,n-i-1){
-                if(a[i]>a[j+1]){
-                   swap(a[i],a[j]);
-                    swap(b[i],b[j]);
-                    ss = true;
-                }
-                 if(b[i]>b[j+1]){
-                    swap(a[i],a[j]);
-                    swap(b[i],b[j]);
-                    ss =true;
-                   
-                }
-            }
-            if(!ss){
-                break;
-            }
-
-        }
-
-
-        //  for(i,0,n){
-        //     for(j,0,n){
-        //         if(a[i]>a[j] && ca>cb){
-        //           ;
-        //             ca--;
-        //         }
-        //          if(b[i]>b[j] && cb>ca){
-                    
-        //             cb--;
-        //         }
-        //     }
-        // }
+    sort(x.begin(),x.end());
 
         for(i,0,n){
-            cout<<a[i]<<" ";
+            cout<<x[i].first<<" ";
         }
         nn;
         for(i,0,n){
-            cout<<b[i]<<" ";
+            cout<<x[i].second<<" ";
         }
         nn;
 
