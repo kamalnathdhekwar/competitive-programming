@@ -1,5 +1,5 @@
              // ***  ... जय श्री राम ...  ***//
-             
+
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -19,12 +19,45 @@ using namespace std;
 #define umps          map<ll,ll>
 #define nn            cout<<endl
 
+// Function to find GCD using Euclidean algorithm
+int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+
 int main()
 {
     ll t;
     cin>>t;
     while(t--){
-        
+        ll n;
+        cin>>n;
+        mvi v(n);
+
+        for(i,0,n){
+            cin>>v[i];
+        }
+         
+         ll flag =1;
+        for(i,0,n){
+          for(j,i+1,n){
+
+            ll key = gcd(v[i],v[j]);
+
+          if(key<=2){
+            flag = 0;
+            break;
+          }
+
+          }
+        }
+
+        if(flag==1) no;
+        else yes;
     }
     
     return 0;
