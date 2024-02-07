@@ -59,11 +59,11 @@ int main()
             }
         }
        
-    
-
           for (const ll& element : aaa) {
         std::cout << element << " ";
-    }
+         }
+
+         
 
     nn;
 
