@@ -26,14 +26,22 @@ int main()
     while(t--){
         ll x,k;
         cin>>x>>k;
-
+         
         if(x%k==0){
             cout<<2<<endl;
-            cout<<x-1<<" "<<1<<endl;
+            cout<<x-(x-1)<<" "<<x-1<<endl;
         }
-        else {
-            cout<<1<<endl<<x<<endl;
-        }
+        else if(k>x){
+                cout<<1<<endl;
+                cout<<x<<endl;
+            }
+
+          else {
+                cout<<1<<endl;
+                cout<<x<<endl;
+            }   
+           
+        
         
     }
     
