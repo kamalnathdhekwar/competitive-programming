@@ -30,12 +30,25 @@ int main()
         cin>>str;
         
         map <char,int> mp;
+        
         for(auto x : str){
             mp[x]++;
         }
 
-        
-        
+        ll osum=0;
+        ll codd = 0;
+        for(auto x :mp){
+            if(x.second%2==1) {
+                osum+=x.second;
+                codd++;
+            }
+        }
+
+        if(k>=n) NO;
+        else if(k>=codd-1) YES;
+        else NO;
+
+        nn;
         
     }
     
