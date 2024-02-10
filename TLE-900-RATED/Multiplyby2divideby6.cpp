@@ -5,8 +5,8 @@ using namespace std;
 
 #define ll            long long int
 #define all(x)        x.begin(),x.end()
-// #define for(i,a,b)    for(ll i = a ; i<b ; i++)
-// #define forr(j,c,d)   for(ll j = c ; j>=d ; j--)
+#define for(i,a,b)    for(ll i = a ; i<b ; i++)
+#define forr(j,c,d)   for(ll j = c ; j>=d ; j--)
 #define yes           cout<<"yes"<<endl
 #define no            cout<<"no"<<endl
 #define YES           cout<<"YES"<<endl
@@ -26,29 +26,30 @@ int main()
     while(t--){
         ll n;
         cin>>n;
+       
+       ll flag = 0;
+       ll count = 0;
+       while(n>1){
+        if(n==1) break;
+        if(n%6==0){
+             n=n/6;
+             count++;
+        }
+        else if((2*n)%6==0){
+            n=n*2;
+        }
+        else{
+            flag = 1;
+            break;
+        }
+
+
+       }
+
+       if(n==1) cout<<1<<endl;
+       else if(flag==1) cout<<-1<<endl;
+       else cout<<count<<endl;
         
-        mvi v(n);
-        for(ll i = 0 ; i< n ; i++){
-            cin>>v[i];
-        }
-     
-        char ch = 'a';
-        mvi fq(26,0);
-
-        string str = "";
-        for(ll i = 0 ; i< n ; i++){
-            ll x = v[i];
-            for(char ch = 'a' ; ch<='z' ; ch++){
-                ll idx = ch -'a';
-                if(fq[idx]==x){
-                    str += ch;
-                    fq[idx]++;
-                    break;
-                }
-            }
-        }
-
-        cout<<str<<endl;
     }
     
     return 0;
