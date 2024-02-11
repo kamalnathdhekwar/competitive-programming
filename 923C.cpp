@@ -37,40 +37,44 @@ int main()
             cin>>b[i];
         }
          
+         map<int,int> m1;
+         map<int,int> m2;
+
+         for(ll i = 0 ; i<n; i++){
+            m1[a[i]]++;
+         }
+
+         for(ll i = 0 ; i<m; i++){
+            m2[b[i]]++;
+         }
+
          ll c1=0;
          ll c2= 0;
-         
-         mvi aa;
-         mvi bb;
-        set<ll> aaa;
-        set<ll> bbb;
-
-        for(ll i = 0 ; i<n ; i++){
-         if(a[i]<=k) {
-            aaa.insert(a[i]);
-            c1++;
-         }
-        }
-
-        for(ll i = 0 ; i<m ; i++){
-            if(b[i]<=k) {
-                bbb.insert(b[i]);
+         ll flag = 0;
+         for(ll i = 1 ;i<=k ;i++){
+            
+            if(m1[i]>0 && m2[i]>0){
+                c1++;
                 c2++;
             }
-        }
-       
-          for (const ll& element : aaa) {
-        std::cout << element << " ";
+            else if(m1[i]>0) c1++;
+            else if(m2[i]>0) c2++;
+            else flag = 1;
          }
-
+        
+        if(flag == 1) NO;
+        else if(c1>=(k/2) && c2>=(k/2)) YES;
+        else NO;
          
-
+         
+        }
     nn;
 
     nn;
      
+     return 0;
         
     }
     
-    return 0;
-}
+    
+    
