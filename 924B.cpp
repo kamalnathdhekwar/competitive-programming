@@ -33,19 +33,28 @@ int main()
             cin>>v[i];
         }
 
-        sort(al(x));
-
+        sort(all(v));
+        
+        ll flag = 0;
         ll c = 1;
         for(ll i = 0 ; i<n-1 ; i++){
           if(v[i+1]-v[i]==1) c++;
         }
+          
+         v.erase(unique(v.begin(),v.end()), v.end());
+           ll count = 0;
+           
+           for(ll i = 0 ; i<v.size(); i++){
+            ll in = upper_bound(all(v),v[i]+n-1)-v.begin();
 
-        // if(c==n) cout<<c<<endl;
-        
-        for(ll i = 0 ; i<n ; i++){
-            
-        }
+            count = max(count,in-i);
+           }
+           if(c==n) cout<<c<<endl;
+           else cout<<count<<endl;
+           nn;
+           nn;
 
+          
     }
     
     return 0;
