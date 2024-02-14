@@ -32,15 +32,24 @@ int main()
         for(i,0,n){
             cin>>v[i];
         }
-       ll count = 0;
-        for(i,0,n){
-            for(j,i+1,n){
-                if(abs(v[i]-v[j])<=k) count++;
-            }
+       ll count = 1;
+       ll curr = 1;
+       sort(all(v));
+
+        for(i,0,n-1){
+
+                if(abs(v[i+1]-v[i])>k) {
+                    count = max(count,curr);
+                    curr=1;
+                }
+                else curr++;
+
+
         }
+        count = max(count,curr);
         
-        if(n==1 || count==n-1) cout<<0<<endl;
-        else cout<<abs(count)<<endl;
+        if(n==1) cout<<0<<endl;
+        else cout<<abs(n-count)<<endl;
         nn;
         
     }
