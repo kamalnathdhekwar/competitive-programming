@@ -32,6 +32,17 @@ int main()
         for(i,0,n){
             cin>>v[i];
         }
+       
+       ll ans = 0;
+
+        for(i,0,n){
+            ans = ans/v[i]+1;
+
+            ans = ans*v[i];
+
+        }
+
+        cout<<ans<<endl;
         
     }
     
