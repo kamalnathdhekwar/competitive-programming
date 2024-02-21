@@ -1,4 +1,5 @@
-// ***  ... जय श्री राम ...  ***//
+             // ***  ... जय श्री राम ...  ***//
+             
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -17,32 +18,33 @@ using namespace std;
 #define umpi          map<string,string>
 #define umps          map<ll,ll>
 #define nn            cout<<endl
+
 int main()
 {
-    ll t;
-    cin>>t;
-    while(t--){
-     ll n,k;
-     cin>>n>>k;
-     ll x = n;
-     char ch = 'a';
+   
+   ll t = 5;
+   ll sn=0;
+   ll sidx=0;
+   ll k = 1;
+   while(t--){
+    
+    mvi s(5);
+    for(i,0,5) cin>>s[i];
 
-     string str="";
+    for(i,0,5){
+        if(s[i]==1) {
+            sidx=i+1;
+            sn = k;
+        
+        }
+    }
 
-     for(i,0,k){
-        str +=ch;
-        ch++;
-     }
+    k++;
 
-for(i,0,n){
-    cout<<str;
-  }
-     
 
-     nn;
-      
-    } 
+   }
 
+   cout<<abs(3-sidx)+abs(3-sn)<<endl;
     
     return 0;
 }
