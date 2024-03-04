@@ -20,27 +20,40 @@ using namespace std;
 #define umps          map<ll,ll>
 #define nn            cout<<endl
 
+int main()
+{
+    #include <bits/stdc++.h>
+using namespace std;
 
 int main()
 {
     int t;
-    int n;
+   
     cin >> t;
     while (t--)
     {
+        int n;
         cin>>n;
-        vector<long long> a(n+1,0);
-            int c=0,p=0;
-        for (i,1,n+1)
+        vector<int> a(n);
+        for (i,0,n)
         {
+            /* code */
             cin>>a[i];
-            if(a[i-1]==0 && a[i]!=0){
-                c++;
-            }
-
         }
-        c = min(c,2);
-        cout<<c<<endl;
+        if (n & 1) {
+		cout << "4" << '\n';
+		cout << "1 " << n - 1 << '\n';
+		cout << "1 " << n - 1 << '\n';
+		cout << n - 1 << ' ' << n << '\n';
+		cout << n - 1 << ' ' << n << '\n';
+	} else {
+		cout << "2" << '\n';
+		cout << "1 " << n << '\n';
+		cout << "1 " << n << '\n';
+	}
         
     }
+}
+    
+    return 0;
 }
