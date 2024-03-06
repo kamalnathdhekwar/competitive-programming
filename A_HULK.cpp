@@ -22,10 +22,6 @@ using namespace std;
 
 int main()
 {
-   #include<bits/stdc++.h>
-using namespace std;
-int main()
-{
     int n;
     cin>>n;
     if(n==1)
@@ -46,8 +42,7 @@ int main()
     else if(n>1)
         cout<<" I hate it";
     cout<<endl;
-    return 0;
-}
+    
     
     return 0;
 }

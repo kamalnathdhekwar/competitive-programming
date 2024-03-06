@@ -1,5 +1,4 @@
-
-             
+          
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -7,8 +6,8 @@ using namespace std;
 #define all(x)        x.begin(),x.end()
 // #define for(i,a,b)    for(ll i = a ; i<b ; i++)
 // #define forr(j,c,d)   for(ll j = c ; j>=d ; j--)
-#define yes           cout<<"yes"<<endl
-#define no            cout<<"no"<<endl
+#define yes           cout<<"Yes"<<endl
+#define no            cout<<"No"<<endl
 #define YES           cout<<"YES"<<endl
 #define NO            cout<<"NO"<<endl
 #define mvi           vector<ll>
@@ -20,21 +19,38 @@ using namespace std;
 // #define umps          map<ll,ll>
 #define nn            cout<<endl
 
+
+
+
 int main() {
-    ll t;
-    cin>>t;
-    while(t--)
-    {
-       string j, s;
-	    cin>>j>>s;
-	    int ans, count = 0;
-	    ans = s.find_first_of(j);
-	    while(ans != std :: string :: npos)
-	    {
-	        count++;
-	        ans = s.find_first_of(j, ans+1);
-	    }
-	    cout<<count<<endl;
-	}
-	return 0;
+//    ll t;
+//    cin>>t;
+//    while(t--){
+    
+    ll n;
+    cin>>n;
+
+    string s;
+    cin>>s;
+
+    map<char,int> mp1;
+    map<char,int> mp2;
+    for(auto x:s){
+        if(x>='a' && x<='z') mp1[x]++;
+        else mp2[x]++;
+    }
+   
+   ll cs=0;
+   ll cc=0;
+    for(auto x:mp1){
+       cs++;
+    }
+    for(auto x:mp2){
+       cc++;
+    }
+
+    if(cs==26 || cc==26) YES;
+    else NO;
+
+
 }
