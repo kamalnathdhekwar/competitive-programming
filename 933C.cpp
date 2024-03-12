@@ -30,13 +30,8 @@ int main()
         cin>>n;
         string s;
         cin>>s;
-        ll cm=0;
-        ll cp=0;
-        ll pc = 0;
-
-        for(i,0,n) if(s[i]=='p') pc++;
-        
         ll c = 0;
+        
         for(i,0,n-2){
             
             string k = s.substr(i,3);
@@ -46,10 +41,6 @@ int main()
             }
         }
 
-        // if(cm+cp<=pc) cout<<cm+cp<<endl;
-        // else if(cm+cp==0) cout<<0<<endl;
-        // else if(cm+cp>pc) cout<<pc<<endl;
-        // else cout<<cm+cp-1<<endl;
         
         cout<<c<<endl;
         
