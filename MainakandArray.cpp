@@ -5,7 +5,6 @@ using namespace std;
 
 #define ll            long long int
 #define all(x)        x.begin(),x.end()
-#define rall(x)       x.begin(),x.end()
 #define for(i,a,b)    for(ll i = a ; i<b ; i++)
 #define forr(j,c,d)   for(ll j = c ; j>=d ; j--)
 #define yes           cout<<"Yes"<<endl
@@ -20,6 +19,9 @@ using namespace std;
 #define umpi          map<string,string>
 #define umps          map<ll,ll>
 #define nn            cout<<endl
+#define all(x)        x.begin(),x.end()
+#define mae(x)        max_element( x.begin(),x.end())
+#define mie(x)        min_element( x.begin(),x.end())
 
 int main()
 {
@@ -31,10 +33,16 @@ int main()
         mvi v(n);
         for(i,0,n) cin>>v[i];
 
-        sort(all(v));
-        if(n==1) cout<<0<<endl;
-        else cout<<v[n-1]-v[0]<<endl;
-        nn;
+        ll maxi = 0;
+
+        for(i,0,n){
+            maxi = max(maxi,v[i]-v[0]);
+            maxi = max(maxi,v[n-1]-v[i]);
+            maxi = max(maxi,v[i]-v[(i+1)%n]);
+
+        }
+       
+       cout<<maxi<<endl;
         
     }
 
