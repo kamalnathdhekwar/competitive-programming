@@ -29,12 +29,10 @@ bool isSorted(vector<ll> v,ll n){
     return true;
 }
 
-int main()
-{
-    ll t;
-    cin>>t;
-    while(t--){
-       ll n;
+void solve(){
+
+
+    ll n;
        cin>>n;
        mvi v(n);
        ll co = 0;
@@ -55,24 +53,30 @@ int main()
      for(ll j = n-2 ; j>=0 ; j--){
        
         if(v[j+1]==0){
-            flag = 1;
-            break;
+            cout<<-1<<endl;
+            return ;
         }
 
          while(v[j]>=v[j+1]){
                 v[j]/=2;
                 c++;
-                if(flag==1) break;
+                
             }
+
+            
      }
- 
 
-     
-        if(isSorted(u,n)) cout<<0<<endl;
-        else if(flag = 1) cout<<-1<<endl;
-       else  cout<<c<<endl;
+     cout<<c<<endl;
 
-       nn;
+}
+
+int main()
+{
+    ll t;
+    cin>>t;
+    while(t--){
+       
+       solve();
 
      }
 
