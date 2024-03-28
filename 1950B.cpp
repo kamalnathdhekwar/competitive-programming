@@ -6,8 +6,8 @@ using namespace std;
 #define ll            long long int
 #define all(x)        x.begin(),x.end()
 #define rall(x)       x.begin(),x.end()
-#define for(i,a,b)    for(ll i = a ; i<b ; i++)
-#define forr(j,c,d)   for(ll j = c ; j>=d ; j--)
+// #define for(i,a,b)    for(ll i = a ; i<b ; i++)
+// #define forr(j,c,d)   for(ll j = c ; j>=d ; j--)
 #define yes           cout<<"Yes"<<endl
 #define no            cout<<"No"<<endl
 #define YES           cout<<"YES"<<endl
@@ -30,44 +30,42 @@ int main()
         cin>>n;
         char a[2*n][2*n];
         
-        for(i,0,2*n){
-            for(j,0,2*n){
+        for(ll i = 0 ; i<2*n  ; i++){
+            for(ll j = 0 ; j<2*n ; j++){
                 
-                    a[i][j]='.';
+                  a[i][j]='.';
                 
             }
         }
+        
+        bool flag = true;
 
-        for(i,0,2*n-1){
-            for(j,0,2*n-1){
-                if(i==j){
-                    a[i][j]='#';
-                    a[i+1][j]='#';
-                    a[i][j+1]='#';
-                    a[i+1][j+1]='#';
+        for(ll i = 0 ; i<2*n  ; i++){
+            for(ll j = 0 ; j<2*n ; j=j+2){
+              
+                if(flag==false){
+                      if((i+j)%4==1) cout<<"##";
+                    else cout<<"..";
                 }
-                else if(j%3==0){
-                    a[i][j]='#';
-                    a[i+1][j]='#';
-                    a[i][j+1]='#';
-                    a[i+1][j+1]='#';
-
+                else {
+                     
+                     if((i+j)%4==0) cout<<"##";
+                    else cout<<"..";
+                    
+                  
                 }
               
+            
             }
+            flag = !flag;;
+            nn;
+         
            
         }
 
-         for(i,0,2*n){
-            for(j,0,2*n){
-                
-                    cout<<a[i][j];
-                
-            }
-            nn;
-        }
-        nn;
-        nn;
+         
+       
+       
 
     }
 
