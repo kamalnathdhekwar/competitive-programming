@@ -22,6 +22,7 @@ int main()
         string a,b,c;
         cin>>a>>b>>c;
         ll count = 0;
+        ll count2 = 0;
         for(i,0,n){
             if(a[i]==c[i] || b[i]==c[i]) count++;
         }
