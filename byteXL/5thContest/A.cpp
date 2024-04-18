@@ -13,7 +13,7 @@ using namespace std;
 #define NO            cout<<"NO"<<endl
 #define mvi           vector<ll>
 #define mvc           vector<char>
-#define mvs           vector<string>
+#define mvs           vector<string> //
 // #define mpi           map<ll,ll>
 // #define mps           map<string,string>
 // #define umpi          map<string,string>
