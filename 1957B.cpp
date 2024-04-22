@@ -1,0 +1,70 @@
+             // ***  ... जय श्री राम ...  ***//
+             
+#include<bits/stdc++.h>
+using namespace std;
+
+#define ll            long long int
+#define all(x)        x.begin(),x.end()
+#define rall(x)       x.begin(),x.end()
+#define for(i,a,b)    for(ll i = a ; i<b ; i++)
+#define forr(j,c,d)   for(ll j = c ; j>=d ; j--)
+#define yes           cout<<"Yes"<<endl
+#define no            cout<<"No"<<endl
+#define YES           cout<<"YES"<<endl
+#define NO            cout<<"NO"<<endl
+#define mvi           vector<ll>
+#define mvc           vector<char>
+#define mvs           vector<string>
+#define mpi           map<ll,ll>
+#define mps           map<string,string>
+#define umpi          map<string,string>
+#define umps          map<ll,ll>
+#define nn            cout<<endl
+
+int main()
+{
+    ll t;
+    cin>>t;
+    while(t--){
+        ll n,k;
+        cin>>n>>k;
+        
+     ll c = 0;
+    ll powers = 1;
+    
+    while (powers <= k) {
+        powers *= 2; 
+        c++;
+    }
+    c--;
+
+     ll key =  (1LL << c);
+      
+
+
+     if(n==1) cout<<k;
+     else {
+
+        cout<<key-1<<" ";
+
+      ll d = k-key+1;
+      
+     
+
+      ll mm = d/(n-1);
+      
+      for(i,1,n-1){
+        cout<<0<<" ";
+      }
+      
+      cout<<d;
+
+     }
+      nn;
+
+    }
+
+
+    
+    return 0;
+}
