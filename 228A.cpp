@@ -23,39 +23,23 @@ using namespace std;
 
 int main()
 {
-    ll n;
-    cin>>n;
+    ll n=4;
     mvi v(n);
 
-    for(ll i = 0 ; i<n ; i++) cin>>v[i];
-    ll c1=0;
-    ll c2=0;
-    
+    for(ll i = 0 ; i<n ; i++){
+        cin>>v[i];
 
-   for(ll i = 0 ; i<n ; i++){
-     ll c = 0;
-    for(ll j = i ; j >=0 ; j--){
-        if(v[j]<v[i]) c=1;
-        else break;
     }
 
-    if(c==1) c1+=1;
-   } 
-
-   for(ll i = 0 ; i<n ; i++){
-     ll c = 0;
-    for(ll j = i ; j >=0 ; j--){
-        if(v[j]>v[i]) c=1;
-        else break;
+    mpi mp;
+    for(auto x:v){
+        mp[x]++;
     }
 
-    if(c==1) c2+=1;
-   }
+    cout<<n-mp.size();
 
+    nn;
 
- 
-
-    cout<<c1+c2<<endl;
     
     return 0;
 }
