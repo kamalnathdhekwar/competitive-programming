@@ -23,24 +23,30 @@ using namespace std;
 
 int main()
 {
-    
-    ll s1,s2,s3,s4;
-    cin>>s1>>s2>>s3>>s4;
-    mvi v(4);
+    ll t;
+    cin>>t;
+    while(t--){
+        ll n;
+        cin>>n;
+        string s;
+        cin>>s;
 
-    v[0]=s1;
-    v[1]=s2;
-    v[2]=s3;
-    v[3]=s4;
+        map<ll,char> mp;
+        
+        for(auto x:s){
+            mp[x]++;
+        }
 
-    mpi mp;
-    for(auto x:v){
-      mp[x]++;
+        ll ans = mp.size()*2;
+
+        for(auto x:mp){
+            if(x.second>1) ans+=(x.second-1);
+        }
+
+        cout<<ans<<endl;
+       
     }
 
-    cout<<4-mp.size();
-
-    nn;
 
     
     return 0;
