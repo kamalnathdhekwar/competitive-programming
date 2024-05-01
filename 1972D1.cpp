@@ -3,11 +3,13 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+
+#define int int64_t
 #define ll            long long int
 #define all(x)        x.begin(),x.end()
 #define rall(x)       x.begin(),x.end()
-#define for(i,a,b)    for(ll i = a ; i<b ; i++)
-#define forr(j,c,d)   for(ll j = c ; j>=d ; j--)
+// #define for(i,a,b)    for(ll i = a ; i<b ; i++)
+// #define forr(j,c,d)   for(ll j = c ; j>=d ; j--)
 #define yes           cout<<"Yes"<<endl
 #define no            cout<<"No"<<endl
 #define YES           cout<<"YES"<<endl
@@ -19,41 +21,26 @@ using namespace std;
 #define mps           map<string,string>
 #define umpi          map<string,string>
 #define umps          map<ll,ll>
-#define nn            cout<<endl
+// #define nn            cout<<endl
 
-int main()
-{
-    ll t;
-    cin>>t;
-    while(t--){
-        ll n,m;
-        cin>>n>>m;
-
-        mvi a;
-        mvi b;
-        
-        for(i,0,n) a.push_back(i+1);
-        for(i,0,m) b.push_back(i+1);
-
-        sort(all(a));
-        sort(all(b));
-        
-
-        ll c = 0;
-        for(i,0,n){
-           for(j,0,m){
-            ll x = b[j]*(__gcd(a[i],b[j]));
-            ll y = a[i]+b[j];
-            if(y%x==0) c++;
-           }
-        }
-
-        cout<<c<<endl;
-
-        nn;
-    }
-
-
-    
-    return 0;
+ 
+int32_t main() {
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	
+	int t;
+	cin >> t;
+	while(t--) {
+		int n, m;
+		cin >> n >> m;
+		int cnt = 0;
+		for(int b=1;b<=m;b++) {
+			for(int a=b;a<=n;a+=b) {
+				if((a+b)%(b*__gcd(a, b))==0) {
+					cnt++;
+				}
+			}
+		}
+		cout << cnt << "\n";
+	}
 }
