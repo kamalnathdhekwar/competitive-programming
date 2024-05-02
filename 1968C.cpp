@@ -46,8 +46,11 @@ int main()
         for(i,0,m){
 
             ll k = v[i]+ans[j-1];
-            if(k>2*v[i])
-            ans[j] = ;
+           if(k%ans[j-1]==v[i]) ans[j] = k;
+           else {
+            ll kk = k*ans[j-1]+1;\
+            ans[j-1] = kk;
+           }
             j++;
         }
 

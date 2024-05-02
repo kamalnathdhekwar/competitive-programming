@@ -34,16 +34,22 @@ int main()
         
         ll ans = 0;
 
-        for(i,0,min(m,n)){
-            
-            }
+        ll i = 0 ; 
+        ll j = 0;
 
-           
-        
+        while(j<m && i<n){
+            if(s1[i]==s2[j]){
+                i++;
+                j++;
+                ans++;
+            }
+          else if(s1[i]!=s2[j]) j++;
+        }
+
 
         cout<<ans;
         nn;
-        nn;
+      nn;
     }
 
 
