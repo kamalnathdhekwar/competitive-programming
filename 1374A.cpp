@@ -30,19 +30,18 @@ int32_t main() {
     ll t;
     cin>>t;
     while(t--){
-         ll x,y,n;
-         cin>>x>>y>>n;
-         
-         ll ans = 0;
-         for(ll i = n ; i>=0 ; i--){
-            if(i%x==y){
-                ans = i;
-                break;
-            }
-         }
+        ll x,y,n;
+        cin>>x>>y>>n;
+        ll ans = 0;
+        ans = n - n % x + y;
 
-         cout<<ans<<endl;
-         nn;
+        if(ans <= n){
+            cout<<ans<<endl;
+        }
+        else{
+            cout<<(n - n % x - (x - y))<<endl;
+        }
+        
     }
 
 
