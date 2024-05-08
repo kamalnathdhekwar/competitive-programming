@@ -27,25 +27,14 @@ int32_t main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    ll n;
-    cin>>n;
-    set<int> levels;
-	  int q,y;
-	  cin>>q;
-	  for(int i=0;i<q;i++){
-		  int x;
-		  cin>>x;
-		  levels.insert(x);
-	  }
-	  cin>>y;
-	  for(int i=0;i<y;i++){
-		  int w;
-		  cin>>w;
-		  levels.insert(w);
-	  }
-	  if(levels.size()==n)
-		  cout<<"I become the guy.";
-	  else
-		  cout<<"Oh, my keyboard!";
-    return 0;
+    string s;
+    set <char> a;
+    getline(cin,s);
+    for(int i=0; i<s.length(); i++)
+    {
+        if(s[i]>='a' && s[i]<='z')
+            a.insert(s[i]);
+    }
+    cout<<a.size()<<endl;
+ 
 }
