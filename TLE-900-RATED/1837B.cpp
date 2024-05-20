@@ -35,21 +35,20 @@ int32_t main() {
         string s;
         cin>>s;
         
-        int cost = 0;
+        int cost = 1;
         int flag = 0;
+        int cur=1;
         for(i,0,n-1){
-            if(s[i]==s[i+1]) {
-                cost++;
-                flag = 1;
+            if(s[i] == s[i+1]){
+                cur++;
             }
-        } 
-        map<char,int> mp;
-        for(i,0,n){
-            mp[s[i]]++;
+            else {
+            cur = 1;
+            }
+            cost=max(cost,cur);
         }
         
-        if(mp.size()==1 || flag==0) cout<<cost+2<<endl;
-        else if(flag==1) cout<<cost+1<<endl;
+       cout<<cost+1<<endl;
         
 
     }
