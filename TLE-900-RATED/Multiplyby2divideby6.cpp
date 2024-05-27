@@ -26,7 +26,7 @@ int main()
     while(t--){
         ll n;
         cin>>n;
-       
+        ll m = n;
        ll flag = 0;
        ll count = 0;
        while(n>1){
@@ -37,6 +37,7 @@ int main()
         }
         else if((2*n)%6==0){
             n=n*2;
+            count++;
         }
         else{
             flag = 1;
@@ -46,7 +47,7 @@ int main()
 
        }
 
-       if(n==1) cout<<1<<endl;
+       if(m==1) cout<<0<<endl;
        else if(flag==1) cout<<-1<<endl;
        else cout<<count<<endl;
         
