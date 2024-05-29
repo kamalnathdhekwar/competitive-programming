@@ -5,11 +5,11 @@ using namespace std;
 
 // #define ll         long long int
 #define int            int64_t
-#define all(x)        x.begin(),x.end()
-#define rall(x)       x.begin(),x.end()
-#define for(i,a,b)    for(int i = a ; i<b ; i++)
-#define forr(j,c,d)   for(int j = c ; j>=d ; j--)
-//#define fora(a,b)     for(auto a : b)
+#define all(x)         x.begin(), x.end()
+#define rall(x)        x.rbegin(), x.rend()
+#define forn(i, a, b)  for(int i = a; i < b; i++)
+#define forr(j, c, d)  for(int j = c; j >= d; j--)
+#define fora(a, b)     for(auto& a : b)
 #define yes           cout<<"Yes"<<endl
 #define no            cout<<"No"<<endl
 #define YES           cout<<"YES"<<endl
@@ -27,7 +27,6 @@ bool check(string s,string t){
     string curr = s+t;
     string ncurr = curr;
     reverse(all(curr));
-
     return curr==ncurr;
 }
 
@@ -43,17 +42,30 @@ int32_t main() {
         cin>>n;
         mvs v(2*n-2);
         
-        for(i,0,v.size()) cin>>v[i];
-         
-         int flag = 0;
-       for(i,0,v.size()-1){
-       
-             if(check(v[i],v[i+1])) flag = 1;
+        forn(i,0,v.size()) cin>>v[i];
+        //sort(all(v));
+  
+        mvs t;
+        mvs s;
+        forn(i,0,v.size()){
+            if(v[i].length()==n-1) t.push_back(v[i]);
+            
+        }
         
-       }
 
-       if(flag==1) YES;
-       else NO;
+        
+        sort(all(t));
+
+        //  forn(i,0,t.size()) {
+        //     cout<<t[i]<<" ";
+        // }
+        //  nn;
+       
+
+         if(check(t[0],t[1])) YES;
+         else NO;
+         
+      
      
     }
 
