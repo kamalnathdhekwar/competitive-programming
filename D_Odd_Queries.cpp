@@ -8,8 +8,8 @@ using namespace std;
 #define all(x)        x.begin(),x.end()
 #define rall(x)       x.begin(),x.end()
 #define for(i,a,b)    for(int i = a ; i<b ; i++)
-#define forr(j,c,d)   for(int j = c ; j>=d ; j--)
-#define fora(a,b)     for(auto a : b)
+// #define forr(j,c,d)   for(int j = c ; j>=d ; j--)
+// #define fora(a,b)     for(auto& a : b)
 #define yes           cout<<"Yes"<<endl
 #define no            cout<<"No"<<endl
 #define YES           cout<<"YES"<<endl
@@ -31,7 +31,29 @@ int32_t main() {
     int t;
     cin>>t;
     while(t--){
+        int n,q;
+        cin>>n>>q;
+        mvi v(n);
+
+        for(i,0,n) cin>>v[i];
         
+        mvi p;
+        p.push_back(v[0]);
+        for(i,1,n){
+            p.push_back(p[i-1]+v[i]);
+        }
+
+        while(q--){
+            int l,r,k;
+            cin>>l>>r>>k;
+            int toadd = (r-l+1)*k;
+            
+            int rsum = p[r-1]-p[l-1]+v[l-1];
+            int finalsum = p[n-1]-rsum+toadd;
+            if(finalsum%2==1) YES;
+            else NO;
+
+        }
     }
 
 
