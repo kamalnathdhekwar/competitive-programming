@@ -23,16 +23,7 @@ using namespace std;
 #define umps          map<int,int>
 #define nn            cout<<"\n"
 
-int findSum(vector<int> v, int x){
-    int sum = 0;
-         
-        forn(i,0,v.size()){
-            double y = v[i];
-            
-            sum+=ceil(y/x);
-        }
-        return sum;
-}
+
 int32_t main() {
 
     ios_base::sync_with_stdio(false);
@@ -47,39 +38,24 @@ int32_t main() {
         vector<int > v(n);
         
         int c = 0;
+        double sum1 = 0;
         forn(i,0,n) {
             cin>>v[i];
+            sum1+=v[i];
             if(v[i]%x==0) c++;
         }
-
-       
 
         int sum = 0;
          
         forn(i,0,v.size()){
             double y = v[i];
-           // cout<<ceil(y/x);
             sum+=ceil(y/x);
         }
+       
+       int k = ceil(sum1/x);
+     cout<<k<<" "<<sum;
 
-         int mini = sum;
-        int maxi = sum;
-         
-        
-        while(n>1){
-            
-            mini = min(mini,findSum(v,x));
-            maxi = max(maxi,findSum(v,x));
-            v[v.size()-2] = v[v.size()-1]+v[v.size()-2];
-             v.pop_back();
-            n--;
-        }
-        
-        
-       // if(c==n) cout<<sum<<" "<<sum;
-     cout<<mini<<" "<<maxi;
 
-      //cout<<round(3.4)<<endl;
         nn;
 
 
