@@ -34,39 +34,24 @@ int32_t main() {
 
     while(t--) {
         string s, t;
-        getline(cin, s, ' ');
-        getline(cin, t);
+        cin>>s>>t;
+        map<char,int> mp;
 
-        vector<int> v(26, 0);
-
+        fora(x,t) mp[x]++;
         
-        fora(x, s) {
-            v[x - 'A']++; 
+        string temp;
+        forr(i,s.length()-1,0){
+            if(mp[s[i]]>0) temp.push_back(s[i]);
+            mp[s[i]]--;
         }
-        int c = 0;
-         int m = 0;
-        forn(i,0,t.length()){
-            
-           
-            forn(j,m,s.length()){
-                
-                if(t[i]==s[j]){
-                if(v[s[j]-'A']==1) c++;
-                  m = j;
-                  break;
-                }
-                v[s[j]-'A']--;
-                
-            }
-             v[s[m]-'A']--;
-
-            //forn(k,0,m)  
-        }
-         
-         cout<<c<<endl;
         
-        // if(c>0) YES;
-        // else NO;
+        reverse(all(temp));
+
+        if(temp==t) YES;
+        else NO;
+    
+        
+       
 
 
     }
