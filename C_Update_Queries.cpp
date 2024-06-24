@@ -28,27 +28,42 @@ int32_t main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    int t;
-    cin>>t;
-    while(t--){
+    int te;
+    cin>>te;
+    while(te--){
         int n,m;
         cin>>n>>m;
         string s,t;
         cin>>s;
         mvi v(m);
-        forn(i,0,n){
+        forn(i,0,m){
             cin>>v[i];
         }
 
-        string t;
+        //string t;
         cin>>t;
+        set<int> st(all(v));
+        sort(all(t));
+        int i = 0;
+        
+        // mvi vv(all(st));
+        // sort(all(vv));
+        
+        fora(x,st){
+            s[x-1]=t[i];
+            i++;
+        }
 
-        forn()
+        cout<<s<<endl;
+
+       
+        
+    
 
 
     }
 
 
     
-    return 0;
+
 }
