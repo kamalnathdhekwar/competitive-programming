@@ -37,18 +37,20 @@ int32_t main() {
         
         int one = 0 ;
         int two = 0;
-        int sum = 0;
+       
         forn(i,0,n){
              cin>>v[i];
              if(v[i]==1) one++;
              else two++;
-             sum+=v[i];
         }
 
-        
 
-        if(one%2==1 || two%2==1) NO;
-        else YES;
+
+        if(one%2==1 && two==0) NO;
+        else if((one==0 && two%2==1) || one==1) NO;
+        else if(one==two && one%2==0)YES;
+        else if(one%2==0) YES;
+        else NO;
 
     }
 
