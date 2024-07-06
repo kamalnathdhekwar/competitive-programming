@@ -38,10 +38,14 @@ int32_t main() {
     int t;
     cin>>t;
     while(t--){
-        int n,k;
-        cin>>n>>k;
-        if(k*k>n || n%2!=k%2) NO;
-        else YES;
+      char c;
+      cin>>c;
+      string s="codeforces";
+      mpc mp;
+      fora(x,s) mp[x]++;
+      if(mp.find(c)!=mp.end()) YES;
+      else NO;
+
     }
 
 
