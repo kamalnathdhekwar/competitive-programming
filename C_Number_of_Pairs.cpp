@@ -4,7 +4,7 @@
 using namespace std;
 
 // #define ll         long long int
-#define int            int64_t
+#define int            long long int
 #define all(x)        x.begin(),x.end()
 #define rall(x)       x.begin(),x.end()
 #define forn(i,a,b)    for(int i = a ; i<b ; i++)
@@ -45,11 +45,18 @@ int32_t main() {
         forn(i,0,n) cin>>v[i];
         
         sort(all(v));
-        
+
         int c = 0;
-        forn(i,0,n){
-            forn(j,i+1,n) if(v[i]+v[j]<=r && v[i]+v[j]>=l) c++;
+        
+        forn(i,0,n-1){
+
+            auto lo = lower_bound(v.begin()+i+1,v.end(),(l-v[i]));
+            auto up = upper_bound(v.begin()+i+1,v.end(),(r-v[i]));
+
+            c+=(up-lo);
         }
+        
+       
         cout<<c<<endl;
     }
 
