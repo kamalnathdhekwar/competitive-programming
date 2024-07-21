@@ -47,9 +47,17 @@ int32_t main() {
 
         int maxi = mx(v);
         int c = 0;
-        fora(x,v) if(x==maxi) c++;
-        if(c%2==1) YES;
+
+        mpi mp;
+        fora(x,v) mp[x]++;
+        int flag = 0;
+        fora(x,mp) if(x.second%2==1) flag = 1;
+
+        if(flag==1) YES;
         else NO;
+        // fora(x,v) if(x==maxi) c++;
+        // if(c%2==1) YES;
+        // else NO;
     }
 
 
