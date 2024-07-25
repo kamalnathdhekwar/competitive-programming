@@ -31,39 +31,36 @@ bool isPrime(int n) { if (n==1) return 0; for (int i=2;i<=round(sqrt(n));++i) if
 
 //..............................................................................................................................................................
 
-// bool isPali(string s){
-//     string t=s;
-//     reverse(all(s));
-//     return t==s;
-// }
 
 int32_t main() {
 
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    string s;
-    cin>>s;
     
-    mpc mp;
+        int n,k;
+        cin>>n>>k;
+        mvi a,b;
 
-    fora(x,s) mp[x]++;
+        while(n--){
+        int x,y;
+        cin>>x>>y;
+        a.pb(x);
+        b.pb(y);
+        }
+
+        int maxi = INT_MIN;
+
+    forn(i,0,a.size()){
+        
+        if(b[i]>=k) maxi = max(maxi,a[i]-(b[i]-k));
+        else maxi = max(maxi,a[i]);
+        
+    }
     
-    int oc = 0;
-    fora(x,mp) if(x.second%2==1) oc++;
+    cout<<maxi<<endl;
 
-    if(oc<2){
-       cout<<"First";
-    }else  {
-
-        if((s.length()-1) % 2 == 0)
-        cout << "First" << endl;
-    
-    else 
-        cout << "Second" << endl;
-}
+       
+    }
 
 
-    
-    return 0;
-}
