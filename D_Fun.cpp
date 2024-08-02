@@ -4,7 +4,7 @@
 using namespace std;
 
 // #define ll         long long int
-#define int            int64_t
+#define ll            int64_t
 #define all(x)        x.begin(),x.end()
 #define rall(x)       x.rbegin(),x.rend()
 #define forn(i,a,b)   for(int i = a ; i<b ; i++)
@@ -40,22 +40,25 @@ int32_t main() {
     int t;
     cin>>t;
     while(t--){
-        int n,x;
-        cin>>n>>x;
-        mvi v(n);
-
-        forn(i,1,n+1) v[i-1]=i;
         
-        int c = 0;
-        forn(i,1,n+1){
-            forn(j,1,n+1){
-                forn(k,1,n+1){
-                   if((i+j+k<=x) && (i*j + j*k + k*i <=n)) c++;
-               }
-            }
-        }
+     ll n ,x;
+     cin>>n>>x;
+     ll c=0;
 
-        cout<<c<<endl;
+     for(ll a=1;a<=x;a++){
+        for(ll b=1;b<=(x-a) ;b++){
+ 
+                if(a*b>=n){
+                    break;
+                }
+                ll m = (n-(a*b))/(a+b);
+
+                ll p = min(m,x-a-b);
+                c += min(m,x-a-b);
+ 
+        }
+     }
+     cout<<c<<endl;
     }
 
 
