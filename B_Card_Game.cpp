@@ -40,22 +40,21 @@ int32_t main() {
     int t;
     cin>>t;
     while(t--){
-       mvi v(4);
-       forn(i,0,4) cin>>v[i];
+       int a,b,x,y;
+       cin>>a>>b>>x>>y;
+       
+       int c = 0;
 
-       mpi mp;
-       fora(x,v) mp[x]++;
+       if((a>x && b>=y) || (a>=x && b>y)) c+=2;
+       if((a>y && b>=x) || (a>=y && b>x)) c+=2;
 
-       if(mp.size()==4) cout<<2<<endl;
-       else if(mp.size()==1) cout<<0<<endl;
-       else {
-         int maxi = mx(v);
-         if(v[0]==v[1] && v[0]==maxi && v[2]==v[3]) cout<<4<<endl;
-         else if(v[0]==v[1] && v[2]==maxi && v[2]==v[3]) cout<<0<<endl;
-       }
-       else {
-         int mini = mn(v);
-       }
+
+
+       cout<<c<<endl;
+
+       
+
+       
 
        ;
     }

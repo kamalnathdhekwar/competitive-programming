@@ -45,40 +45,30 @@ int32_t main() {
 
         mvi l,r;
         int k = n;
-       
-     
+        // l.pb(0);
+        // l.pb(m);
 
         while(k--){
             int ll,rr;
             cin>>ll>>rr;
             l.pb(ll);
-            l.pb(rr);
+            r.pb(rr);
         }
 
-        sort(all(l));
+        //sort(all(l));
         
         int flag = 0;
-
-        if(l[0]>=s) {
-            YES;
-            
-        }
-        else if(m-l.back()>=s){
-            YES;
-           
-        }
-         else {
-            for(int i = 1 ; i<l.size() ; i++) if(l[i]-l[i-1]>=s) {
-            flag = 1;
-            break;
-        }
         
-         if(flag==1) YES;
+        if(l[0]>=s) flag = 1;
+
+        forn(i,1,n){
+            if(l[i]-r[i-1]>=s) flag=1;
+        }
+
+        if(m-r[r.size()-1]>=s) flag =1 ;
+
+        if(flag==1) YES;
         else NO;
-        
-         }
-
-       
 
     
 
