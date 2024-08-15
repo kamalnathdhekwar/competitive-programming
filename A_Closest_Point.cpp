@@ -20,8 +20,8 @@ using namespace std;
 #define mvs           vector<string>
 #define mpi           map<int,int>
 #define mpc           map<char,int>
-#define umpci         unordered_map<char,int>
-#define umpic         unordered_map<char,int>
+#define umpi          unordered_map<int,int>
+#define umpc          unordered_map<char,int>
 #define nn            cout<<"\n"
 #define bs            binary_search
 #define mx(x)        *max_element(all(x))
@@ -41,59 +41,19 @@ int32_t main() {
     int t;
     cin>>t;
     while(t--){
-      int n;
-      cin>>n;
-
-      mvi v(n);
-      forn(i,0,n) cin>>v[i];
-
-      int m;
-      cin>>m;
-     
-      while(m--){
-        string s;
-        cin>>s;
+        int n;
+        cin>>n;
+        mvi v(n);
+        forn(i,0,n) cin>>v[i];
         
-        if(s.length()!=n){
-            NO;
-            continue;
+        mpi mp;
+        fora(x,v) mp[x]++;
+
+        if(mp.size()==1) YES;
+        else {
+            if(n==2 && abs(v[0]-v[1])>=2) YES;
+            else NO;
         }
-
-        unordered_map<int,char> m1;
-        unordered_map<char,int> m2;
-
-        
-      
-        bool flag = true;
-        forn(i,0,n){
-
-            int k = v[i];
-            char c=s[i];
-
-            if(( m1.count(k) && m1[k]!=c)) {
-                flag = false;
-                break;
-            }
-           if(( m2.count(c) && m2[c]!=k)){
-                 flag = false;
-                 break;
-            }
-           
-            m1[k]=c;
-            m2[c]=k;
-        }
-
-
-        if(flag) YES;
-        else NO;
-        
-
-      }
- nn;
-
-     
-
-
     }
 
 
