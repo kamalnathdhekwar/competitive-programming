@@ -1,62 +1,89 @@
-             // ***  ... जय श्री राम ...  ***//
-             
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
-// #define ll         long long int
-#define int            int64_t
-#define all(x)        x.begin(),x.end()
-#define rall(x)       x.rbegin(),x.rend()
-#define forn(i,a,b)   for(int i = a ; i<b ; i++)
-#define forr(j,c,d)   for(int j = c ; j>=d ; j--)
-#define fora(a,b)     for(auto& a : b)
-#define yes           cout<<"Yes"<<endl
-#define no            cout<<"No"<<endl
-#define YES           cout<<"YES"<<endl
-#define NO            cout<<"NO"<<endl
-#define pb            push_back
-#define mvi           vector<int>
-#define mvc           vector<char>
-#define mvs           vector<string>
-#define mpi           map<int,int>
-#define mpc           map<char,int>
-#define umpi          unordered_map<int,int>
-#define umpc          unordered_map<char,int>
-#define nn            cout<<"\n"
-#define bs            binary_search
-#define mx(x)        *max_element(all(x))
-#define mn(x)        *min_element(all(x))
 
-bool isPrime(int n) { if (n==1) return 0; for (int i=2;i<=round(sqrt(n));++i) if (n%i==0) return 0; return 1; }
+/* TYPES  */
+#define ll long long
+#define pii pair<int, int>
+#define pll pair<long long, long long>
+#define vi vector<int>
+#define vll vector<long long>
+#define mii map<int, int>
+#define si set<int>
+#define sc set<char>
+
+/* FUNCTIONS */
+#define f(i,s,e) for(long long int i=s;i<e;i++)
+#define cf(i,s,e) for(long long int i=s;i<=e;i++)
+#define rf(i,e,s) for(long long int i=e-1;i>=s;i--)
+#define pb push_back
+#define eb emplace_back
+
+/* PRINTS */
+template <class T>
+void print_v(vector<T> &v) {  for (auto x : v) cout << x << " "; }
+
+/* UTILS */
+#define MOD 1000000007
+#define PI 3.1415926535897932384626433832795
+#define read(type) readInt<type>()
+ll min(ll a,int b) { if (a<b) return a; return b; }
+ll min(int a,ll b) { if (a<b) return a; return b; }
+ll max(ll a,int b) { if (a>b) return a; return b; }
+ll max(int a,ll b) { if (a>b) return a; return b; }
+ll gcd(ll a,ll b) { if (b==0) return a; return gcd(b, a%b); }
+ll lcm(ll a,ll b) { return a/gcd(a,b)*b; }
+string to_upper(string a) { for (int i=0;i<(int)a.size();++i) if (a[i]>='a' && a[i]<='z') a[i]-='a'-'A'; return a; }
+string to_lower(string a) { for (int i=0;i<(int)a.size();++i) if (a[i]>='A' && a[i]<='Z') a[i]+='a'-'A'; return a; }
+bool prime(ll a) { if (a==1) return 0; for (int i=2;i<=round(sqrt(a));++i) if (a%i==0) return 0; return 1; }
+
+/*  All Required define Pre-Processors and typedef Constants */
+typedef long int int32;
+typedef unsigned long int uint32;
+typedef long long int int64;
+typedef unsigned long long int  uint64;
 
 
-//..............................................................................................................................................................
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////ASLI MAAL////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-int32_t main() {
-
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-
-    int t;
-    cin>>t;
-    while(t--){
-        int n;
-        cin>>n;
-        mvi v(n);
-        forn(i,0,n) cin>>v[i];
-        
-        mpi mp;
-        fora(x,v) mp[x]++;
-
-        if(mp.size()==1) YES;
-        else {
-            if(n==2 && abs(v[0]-v[1])>=2) YES;
-            else NO;
+int solve()
+{
+    ll n;
+    cin>>n;
+    vector<ll> a(n);
+    for(ll i=0;i<n;i++) cin>>a[i];
+    if(n==2){
+        if(a[1]-a[0]>1){
+            cout<<"YES\n";
+        }
+        else{
+            cout<<"NO\n";
         }
     }
+    else{
+        cout<<"NO\n";
+    }
+    return 0;
+}
 
 
-    
+/* Main()  function */
+int main()
+{
+ ios_base::sync_with_stdio(false);
+cin.tie(NULL);  
+    int tc=1;
+    cin>>tc;
+
+    while(tc--)
+    {
+        solve();
+    }
+
     return 0;
 }
