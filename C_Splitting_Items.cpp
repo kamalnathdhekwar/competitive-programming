@@ -4,7 +4,7 @@
 using namespace std;
 
 // #define ll         long long int
-#define int            int64_t
+// #define int            int64_t
 #define all(x)        x.begin(),x.end()
 #define rall(x)       x.rbegin(),x.rend()
 #define forn(i,a,b)   for(int i = a ; i<b ; i++)
@@ -43,44 +43,20 @@ int32_t main() {
     while(t--){
       int n ,k;
       cin>>n>>k;
-      mvi v(n);
-      forn(i,0,n) cin>>v[i];
+      mvi a(n);
+      forn(i,0,n) cin>>a[i];
     
-    sort(all(v));
-    reverse(all(v));
-    int maxi = mx(v);
-     forn(i,0,n){
-        if(k<=0) break;
-
-       if(v[i]<maxi){
-        if(k>=maxi-v[i] && k>0){
-             v[i]+=maxi-v[i];
-            k-=maxi-v[i];
-        }
-        else{
-             v[i]+=k;
-             k=0;
-        }
-        
-     
-       }
-     }
-
-     int i = 0 ;
-     int j = 1;
-     int A = 0;
-     int B = 0;
-     while(i<n){
-        A+=v[i];
-        if(j<n)
-        B+=v[j];
-        i+=2;
-        j+=2;
-     }
-
-     cout<<A-B;
-     nn;
-
+    sort(all(a));
+    reverse(all(a));
+    int ans = 0;
+    for (int i = 0; i < n - 1; i += 2)
+    {
+        ans += a[i] - a[i + 1];
+    }
+    ans = max(0, ans - k);
+    if (n % 2)
+        ans += a[n - 1];
+    cout << ans << '\n';
 
     }
 
