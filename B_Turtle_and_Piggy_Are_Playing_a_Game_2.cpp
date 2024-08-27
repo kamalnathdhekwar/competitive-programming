@@ -39,22 +39,24 @@ int32_t main() {
     cin.tie(NULL);
 
     int t;
-    cin>>t;
-    while(t--){
-      int n;
-      cin>>n;
-      string s;
-      cin>>s;
-      if(n==2){
-        if(s[0]==s[1]) NO;
-      }
-      else if(s[0]!=s[2]) YES;
-      else NO;
-
-  
-    }
-
-
+cin >> t;
+while (t--) {
+    int n;
+    cin >> n;
+    mvi v(n);
+    forn(i, 0, n) cin >> v[i];
     
-    return 0;
+    sort(all(v));
+    //   while (v.size() > 1) {
+    //     if (v.size() == 1) break;
+
+    //     v[0] = max(v[0], v[1] + 1);
+    //     v.erase(v.begin() + 1);
+    //     if (v.size() == 1) break;
+    //     v[0] = min(v[0], v[1] + 1);
+    //     v.erase(v.begin() + 1);
+    // }
+
+    cout<<v[n/2]<<endl;
+   }
 }

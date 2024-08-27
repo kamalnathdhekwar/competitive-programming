@@ -45,11 +45,9 @@ int32_t main() {
       cin>>n;
       string s;
       cin>>s;
-      if(n==2){
-        if(s[0]==s[1]) NO;
-      }
-      else if(s[0]!=s[2]) YES;
-      else NO;
+      reverse(all(s));
+
+      cout<<s<<endl;
 
   
     }
