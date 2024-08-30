@@ -4,7 +4,7 @@
 using namespace std;
 
 // #define ll         long long int
-
+#define int            int64_t
 #define all(x)        x.begin(),x.end()
 #define rall(x)       x.rbegin(),x.rend()
 #define forn(i,a,b)   for(int i = a ; i<b ; i++)
@@ -33,51 +33,21 @@ bool isPrime(int n) { if (n==1) return 0; for (int i=2;i<=round(sqrt(n));++i) if
 //..............................................................................................................................................................
 
 
-int solve()
-{
-       int n;cin>>n;string s;
-    cin>>s;
-    map<char,int>mp;
-    for(auto it:s)mp[it]++;
-    vector<pair<int,char>>v;
-    for(auto it:mp){
-        v.push_back({it.second,it.first});
-    }
-    sort(v.rbegin(),v.rend());  
-    string ans="";
-    string temp="";
-    for(auto it:v)temp.push_back(it.second);
-    int sum=0;
-    int i=v.size()-1;
-  
-    while(i>=0){
- 
-        int req=v[i].first-sum;
-      
-        for(int j=0;j<req;j++)ans+=temp;
-        sum+=req;
-        // debug(temp)
-        temp.pop_back();
- 
-        i--;
-    }
-    cout<<ans<<endl;
-    return 0;
-}
- 
- 
+int32_t main() {
 
-int main()
-{
- ios_base::sync_with_stdio(false);
-cin.tie(NULL);  
-    int tc=1;
-    cin>>tc;
- 
-    while(tc--)
-    {
-        solve();
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    int t;
+    cin>>t;
+    while(t--){
+      int n,s;
+      cin>>n>>s;
+      
+  
     }
- 
+
+
+    
     return 0;
 }
