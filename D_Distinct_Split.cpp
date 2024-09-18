@@ -48,29 +48,46 @@ int32_t main() {
      string s;
      cin>>s;
 
-    //  if(n==2){
-    //     cout<<2;
-    //     nn;
-    //     continue;
-    //  }
+     mpc mp;
+     fora(x,s) mp[x]++;
 
-     int i = 0;
-     int j = n-1;
 
-     map<char,int> m1,m2;
-     
-     int maxi = 0;
-     
-     while(i<=j){
-        int curr = m1.size()+m2.size();
-        maxi = max(maxi,curr);
-        m1[s[i]]++;
-        m2[s[j]]++;
-        i++;
-        j--;
+     if(mp.size()==1){
+        cout<<2;
+        nn;
+        continue;
      }
 
-      maxi = max(maxi,(int)m1.size()+m2.size());
+     int i = 0;
+     int j = 1;
+
+     
+     map<char,int> m1,m2;
+
+     int maxi = 2;
+
+     //m1[s[0]]++;
+
+     forn(x,0,n) m2[s[x]]++;
+
+     forn(i,0,n-1){
+        
+     }
+     
+     while(j<n-1){
+      
+        m1[s[i]]++;
+        
+        if(m2[s[i]]==1) m2.erase(s[i]);
+        else m2[s[i]]--;
+
+        int curr = m1.size()+m2.size();
+        maxi = max(maxi,curr);
+        i++;
+        j++;
+     };
+
+      //maxi = max(maxi,(int)m1.size()+m2.size());
 
      cout<<maxi<<endl;
      
