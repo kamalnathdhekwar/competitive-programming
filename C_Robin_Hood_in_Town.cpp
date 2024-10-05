@@ -4,7 +4,7 @@
 using namespace std;
 
 // #define ll         long long int
-//#define int            int64_t
+#define int            int64_t
 #define all(x)        x.begin(),x.end()
 #define rall(x)       x.rbegin(),x.rend()
 #define forn(i,a,b)   for(int i = a ; i<b ; i++)
@@ -33,32 +33,37 @@ int sumv(vector<int>v) { int sum = 0 ;for (int i=0;i<v.size();++i) sum+=v[i]; re
 
 //..............................................................................................................................................................
 
- 
 
-int main()
-{
-	int t;
-	cin >> t;
-	while(t--){
-	    int n,k;
-		cin>>n>>k;
-        
-		if(k==1) cout<<n<<endl;
-		else {
-			int ans= 0;
-			while(n>0){
-				ans+=n%k;
-				n/=k;
-			}
+int32_t main() {
 
-			cout<<ans<<endl;
-		}
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
 
+    int t;
+    cin>>t;
+    while(t--){
+    int n;
+    cin>>n;
 
-
-		
-         
-		
-	}
-  
+    mvi a(n);
+    forn(i,0,n) cin>>a[i];
+    if (n <= 2) {
+        cout << "-1\n";
+       continue;
+    }
+    int sum = accumulate(a.begin(), a.end(), 0LL);
+    sort(a.begin(), a.end());
+    int req = a[n / 2] * 2 * n + 1;
+    if (sum >= req) {
+        cout << "0\n";
+    } else {
+        cout << req - sum << '\n';
+    }
 }
+
+    
+    }
+
+
+    
+  
