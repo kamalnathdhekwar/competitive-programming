@@ -3,8 +3,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-// #define ll         long long int
-#define int            int64_t
+#define ll         long long int
 #define all(x)        x.begin(),x.end()
 #define rall(x)       x.rbegin(),x.rend()
 #define forn(i,a,b)   for(int i = a ; i<b ; i++)
@@ -42,19 +41,27 @@ int32_t main() {
     int t;
     cin>>t;
     while(t--){
-       int n ;
-       cin>>n;
-
-       mvi v(n);
-       forn(i,0,n) cin>>v[i];
-
-       set<int> st;
-       fora(x,v) st.insert(x);
-       
-       int ans = 0;
-       fora(x,st) ans+=x;
-
-       cout<<ans<<endl;
+       ll n,b,sum=0,maxi = INT_MIN,par=0;
+        cin>>n;
+        cin>>b;
+        sum = b;
+        par = abs(b)%2;
+        maxi = sum;
+        for( ll i = 1 ; i < n ; i++) {
+            cin>>b;
+            if(abs(b)%2 != par) {
+                sum+=b;
+            }
+            else {
+                sum = b;
+            }
+            if(b > sum) {
+                sum = b;
+            }
+            par = abs(b)%2;
+            maxi = max(sum,maxi);
+        }
+        cout<<maxi<<endl;
 
     }
 
