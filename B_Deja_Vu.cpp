@@ -64,28 +64,20 @@ int main() {
             key = i;
         }
 
-        sort(all(x));
         
-        int key2 = q;
-        
-        forn(i,0,q) {
-            if(x[i]>key) {
-                key2 = i;
-                break;
-            }
-        }
 
- 
-        forn(i,0,n){
+        unordered_set<int> st;
 
-           // if(__builtin_popcount(v[i])>1) continue;
+        forn(i,0,q){
+               if(st.find(x[i])!=st.end()) continue;
+                st.insert(x[i]);
 
-            forn(j,0,key2+1){
-                int k = pow(2,x[j]);
+            forn(j,0,n){
+               
+                int k = pow(2,x[i]);
                 
-                if(v[i]%k==0) {
-                    v[i]+=pow(2,x[j]-1);
-                    //break;
+                if(v[j]%k==0) {
+                    v[j]+=pow(2,x[i]-1);
                 }
             }
         }
