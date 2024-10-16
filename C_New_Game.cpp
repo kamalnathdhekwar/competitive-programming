@@ -34,6 +34,11 @@ int sumv(vector<int>v) { int sum = 0 ;for (int i=0;i<v.size();++i) sum+=v[i]; re
 //..............................................................................................................................................................
 
 
+bool mysort(pair<int,int> &a , pair<int,int> &b){
+  if(a.first==a.first) return  a.second<b.second;
+  return  a.first>a.first;
+}
+
 int32_t main() {
 
     ios_base::sync_with_stdio(false);
@@ -55,38 +60,47 @@ int32_t main() {
       mpi mp;
       fora(x,v) mp[x]++;
 
+
+      //
+
+
       vector<pair<int,int>> p;
 
       for(auto x : mp) p.pb({x.second, x.first});
       
-      sort(all(p));
-      reverse(all(p));
-      int sum = p[0].first;
-      int prev = p[0].second;
-      int take = 1;
+
+
+    //   sort(all(p) , mysort);
+    //  // reverse(all(p));
+
+    //  fora(x,p) cout<<x.first<<" "<<x.second<<endl;
+
+      int sum = 0;
+      int prev = -1;
+      int st = -1;
       
       int maxi = 0;
 
-      forn(i,1,k) {
-         
-        //  if(take==k) {
-        //     maxi = max(maxi,sum);
-        //    sum = p[0].first;
-        //    prev = p[0].second;
-        //    take = 1;
-        //     continue;
-        //  }
-        if(abs(p[i].second-prev)==1 ||  p[i].second-prev==0){
-             sum+=p[i].first;
-             prev = p[i].second;
+      fora(x,mp){
+        if(prev!=x.first-1){
+          st = x.first;
+          maxi = x.second;
         }
-       
+        else {
+          if(x.first-st+1>k){
+            maxi-=mp[x.first-k];
+          }
+          maxi+=x.second;
+        }
 
-        take++;
-       
+        prev = x.first;
+
+        sum = max(maxi,sum);
       }
+      
 
-      cout<<sum<<endl;
+
+    cout<<sum<<endl;
 
     }
 
