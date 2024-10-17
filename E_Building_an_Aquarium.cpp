@@ -34,11 +34,6 @@ int sumv(vector<int>v) { int sum = 0 ;for (int i=0;i<v.size();++i) sum+=v[i]; re
 //..............................................................................................................................................................
 
 
-bool mysort(pair<int,int> &a , pair<int,int> &b){
-  if(a.first==a.first) return  a.second<b.second;
-  return  a.first>a.first;
-}
-
 int32_t main() {
 
     ios_base::sync_with_stdio(false);
@@ -47,65 +42,73 @@ int32_t main() {
     int t;
     cin>>t;
     while(t--){
-      
-      int n,k;
-      cin>>n>>k;
-    
-    mvi v(n);
-    forn(i,0,n) cin>>v[i];
-  
+        int n ;
+        int x;
+        cin>>n>>x;
+        mvi v(n);
 
-      mpi mp;
-      fora(x,v) mp[x]++;
-      
-    
-
-      int sum = 0;
-      int prev = -1;
-      int st = -1;
-      
-      int maxi = 0;
-      
-      int c= 1;
-      int curr =0;
-      int flag = 0;
-      fora(x,mp){
+        forn(i,0,n) cin>>v[i];
         
-        if(prev==-1 || x.first-prev<=1){
-          curr+=x.second;
-          c++;
-          flag = 0;
-          prev = x.first;
+        sort(all(v));
+        
+        int c = 0;
+        forn(i,0,n){
+            if(v[i]>=x) c++;
         }
+        
+        if(n==1){
+            cout<<x+v[0]<<endl;
+        
+        }
+        // else if(c==n){
+        //     cout<<mn(v)+1;
+        //     nn;
+    
+        // }
         else {
-          c=1;
-          prev=-1;
-          flag = 1;
+
+            int l = 0 ,  r = 1e10;
+            
+            int ans = 0;
+            
+            vector<pair<int,int>> vp;
+
+            while(l<r-1){
+                int mid = l+(r-l)/2;
+                 
+                int curr = 0;
+
+                forn(i,0,n) {
+                    if(v[i]<mid) curr+=mid-v[i];
+                }
+
+                vp.pb({mid,curr});
+
+                
+                 if(curr>x) r = mid;
+                else l = mid;
+
+            }
+            
+            sort(all(vp));
+            //forn(i,0,vp.size()) cout<<vp[i].first<<" "<<vp[i].second<<endl;
+         
+            forn(i,0,vp.size()){
+                if(vp[i].second>x) {
+                    ans = vp[i-1].first;
+                    break;
+                }
+                else if(vp[i].second==x) {
+                    ans = vp[i].first;
+                    break;
+                }
         }
-        
-          sum = max(sum,curr);
-        
-        if(c>k || flag ==1){
-           
-           if(mp[x.first-1]==0) curr = 0;
-           else curr-=mp[x.first-1];
-           c--;
+           cout<<ans<<endl;
         }
-        
-        sum = max(sum,curr);
-        
-      }
 
-
-
-    cout<<sum<<endl;
 
     }
-    
-    // 6
-    // 3
-    // 9
-    // 2
+
 
     
     return 0;
