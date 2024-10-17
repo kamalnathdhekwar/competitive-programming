@@ -73,7 +73,7 @@ int32_t main() {
             
             vector<pair<int,int>> vp;
 
-            while(l<r-1){
+            while(l<=r){
                 int mid = l+(r-l)/2;
                  
                 int curr = 0;
@@ -82,34 +82,17 @@ int32_t main() {
                     if(v[i]<mid) curr+=mid-v[i];
                 }
 
-                vp.pb({mid,curr});
-
-                
-                 if(curr>x) r = mid;
-                else l = mid;
+                 if(curr>x) r = mid-1;
+                else {
+                    ans = mid;
+                    l = mid+1;
+                }
 
             }
             
-            sort(all(vp));
-            //forn(i,0,vp.size()) cout<<vp[i].first<<" "<<vp[i].second<<endl;
-         
-            forn(i,0,vp.size()){
-                if(vp[i].second>x) {
-                    ans = vp[i-1].first;
-                    break;
-                }
-                else if(vp[i].second==x) {
-                    ans = vp[i].first;
-                    break;
-                }
-        }
+        
            cout<<ans<<endl;
         }
-
-
-    }
-
-
     
-    return 0;
+}
 }
