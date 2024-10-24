@@ -4,7 +4,7 @@
 using namespace std;
 
 // #define ll         long long int
-#define int            long long int
+#define int            int64_t
 #define all(x)        x.begin(),x.end()
 #define rall(x)       x.rbegin(),x.rend()
 #define forn(i,a,b)   for(int i = a ; i<b ; i++)
@@ -34,7 +34,7 @@ int sumv(vector<int>v) { int sum = 0 ;for (int i=0;i<v.size();++i) sum+=v[i]; re
 //..............................................................................................................................................................
 
 
-int main() {
+int32_t  main() {
 
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
@@ -59,43 +59,66 @@ int main() {
        int curr = 0;
        int flag = 0;
        
+       reverse(all(a));
+       reverse(all(b));
+       reverse(all(c));
+   
+      
+     
        int i = 0;
        int j = 0;
        int k = 0;
 
-       while(true){
-         if(i>=n && j>=n && k>=n) break;
 
-         if(curr>x) break;
-         if(curr==x){
+
+       while(true){
+
+         //if(i>=n && j>=n && k>=n) break;
+
+         //if(curr>x) break;
+
+       
+          int count = 0;
+
+         if((x|a[a.size()-1])==x && a.size()>0) { 
+            curr=(curr|a[a.size()-1]);
+            a.pop_back();
+              if(curr==x){
             flag = 1;
             break;
          }
 
-          int c = 0;
-
-         if(curr|a[i]<=x) {
-            curr|=a[i];
-            i++;
+            count++;
          }
-         else c++;
+         
           
+
+          if((x|b[b.size()-1])==x && b.size()>0) {
+            curr=(curr|b[b.size()-1]);
+             
+             b.pop_back();
+              if(curr==x){
+            flag = 1;
+            break;
+         }
+
+             count++;
+         }
+        
+
+          if((x|c[c.size()-1])==x && c.size()>0) {
+            curr=(curr|c[c.size()-1]);
+            c.pop_back();
+              if(curr==x){
+            flag = 1;
+            break;
+         }
+
+             count++;
+         }
          
 
-          if(curr|b[j]<=x) {
-            curr|=b[j];
-            j++;
-         }
-         else c++;
-
-          if(curr|c[k]<=x) {
-            curr|=c[k];
-            k++;
-         }
-         else c++;
-
-         if(c==3) break;
-         
+         if(count==0) break;
 
        }
 
@@ -110,5 +133,5 @@ int main() {
 
 
     
-    return 1;
+    return 0;
 }
