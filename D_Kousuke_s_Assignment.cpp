@@ -32,40 +32,6 @@ int sumv(vector<int>v) { int sum = 0 ;for (int i=0;i<v.size();++i) sum+=v[i]; re
 
 //..............................................................................................................................................................
 
-
-int solve()
-{
-    ll n,s=0,count=0,p=-1;
-    cin>>n;
-    mvi a(n);
-    forn(i,0,n)cin>>a[i];
- 
- 
-    map<ll,ll> mp;mp[0]=1;
-    ll c=0;
-    forn(i,0,n){
- 
-        s = s + a[i];
-        if(mp[s]>0){
-            count+=1;
- 
-            p=0;
-            mp.clear();
-            mp[0]=1;
-            s=0;
-        }
-        // cout<<mp[a[i]]<<endl;
-        p=1;
-        mp[s]++;
-        if(p==0){
-            c++;
-        }
-        
-    }
-    cout<<count<<endl;
-    return 0;
-}
- 
  
 /* Main()  function */
 int main()
@@ -75,9 +41,106 @@ cin.tie(NULL);
     int tc=1;
     cin>>tc;
  
-    while(tc--)
-    {
-        solve();
+    while(tc--){
+       int n;
+       cin>>n;
+
+       mvi v(n);
+       
+       int zero=0;
+
+       forn(i,0,n) {
+        cin>>v[i];
+        if(v[i]==0) zero++;
+       }
+       
+       int ans = 0;
+
+       mvi p(n);
+
+       p[0]=v[0];
+
+       forn(i,1,n) p[i]=v[i]+p[i-1];
+
+
+    //    mpi mp;
+    //    fora(x,p) mp[x]++;
+
+       //fora(x,mp) if(x.second==2) ans++;
+
+      
+     set<int> st;
+     st.insert(p[0]);
+ 
+     map<int,int> mp;
+     map<int,int> mp1;
+     
+     //mp[p[0]]++;
+      
+      int prev = -1;
+      mp[p[0]]=0;
+      forn(i,1,n){
+        if((st.find(p[i])!=st.end()) && mp[p[i]]>prev){
+             
+             prev = i;
+              ans++;
+         
+            st.erase(p[i]);
+           mp.erase(p[i]);
+           
+        }
+        else {
+            st.insert(p[i]);
+            mp[p[i]]=i;
+        }
+      }
+       
+
+    //    while(p[i]==0) i++;
+       
+    //     int j = i+1;
+
+    //    while(i<n){
+
+    //     if(j==n) j=i+1;
+    //     if(p[j]-p[i]==0) {
+    //         ans++;
+    //         i=j+1;
+    //         j=i+1;
+    //     }
+    //     else {
+    //         j++;
+    //     }
+    //    }
+       
+    //    if(zero>0) ans++;
+
+        cout<<ans<<endl;
+
+
+
+        
+
+
+       
+    //    forn(i,0,n){
+    //       int sum=0;
+    //      forn(j,i+1,n){
+            
+    //         if(v[j]!=INT_MAX)  sum+=v[j];
+    //         if(sum==0) {
+    //             ans++;
+    //             v[i]=INT_MAX;
+    //             v[j]=INT_MAX;
+    //             break;
+    //         }
+           
+           
+    //      }
+    //    }
+
+       //cout<<ans<<endl;
+
     }
  
     return 0;
