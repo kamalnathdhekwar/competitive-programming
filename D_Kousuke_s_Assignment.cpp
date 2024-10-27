@@ -63,83 +63,32 @@ cin.tie(NULL);
        forn(i,1,n) p[i]=v[i]+p[i-1];
 
 
-    //    mpi mp;
-    //    fora(x,p) mp[x]++;
-
-       //fora(x,mp) if(x.second==2) ans++;
-
       
      set<int> st;
-     st.insert(p[0]);
- 
-     map<int,int> mp;
-     map<int,int> mp1;
+     st.insert(0);
+
      
-     //mp[p[0]]++;
-      
-      int prev = -1;
-      mp[p[0]]=0;
-      forn(i,1,n){
-        if((st.find(p[i])!=st.end()) && mp[p[i]]>prev){
+     int sum = 0;
+ 
+      forn(i,0,n){
+          
+        sum+=v[i];
+
+        if((st.find(sum)!=st.end())){
              
-             prev = i;
-              ans++;
-         
-            st.erase(p[i]);
-           mp.erase(p[i]);
-           
+            ans++;
+            sum=0;
+            st.clear();
+            st.insert(0);
+          
         }
-        else {
-            st.insert(p[i]);
-            mp[p[i]]=i;
-        }
+        else  st.insert(sum);
       }
        
-
-    //    while(p[i]==0) i++;
-       
-    //     int j = i+1;
-
-    //    while(i<n){
-
-    //     if(j==n) j=i+1;
-    //     if(p[j]-p[i]==0) {
-    //         ans++;
-    //         i=j+1;
-    //         j=i+1;
-    //     }
-    //     else {
-    //         j++;
-    //     }
-    //    }
-       
-    //    if(zero>0) ans++;
-
         cout<<ans<<endl;
 
 
-
-        
-
-
-       
-    //    forn(i,0,n){
-    //       int sum=0;
-    //      forn(j,i+1,n){
-            
-    //         if(v[j]!=INT_MAX)  sum+=v[j];
-    //         if(sum==0) {
-    //             ans++;
-    //             v[i]=INT_MAX;
-    //             v[j]=INT_MAX;
-    //             break;
-    //         }
-           
-           
-    //      }
-    //    }
-
-       //cout<<ans<<endl;
+  
 
     }
  
