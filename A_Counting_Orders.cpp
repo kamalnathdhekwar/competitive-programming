@@ -3,7 +3,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-#define int            int64_t      
+#define ll            int64_t        
 #define all(x)        x.begin(),x.end()
 #define rall(x)       x.rbegin(),x.rend()
 #define forn(i,a,b)   for(int i = a ; i<b ; i++)
@@ -25,73 +25,47 @@ using namespace std;
 #define bs            binary_search
 #define mx(x)        *max_element(all(x))
 #define mn(x)        *min_element(all(x))
-
+const ll mod = 1e9+7 ;
 bool isPrime(int n) { if (n==1) return 0; for (int i=2;i<=round(sqrt(n));++i) if (n%i==0) return 0; return 1; }
 int sumv(vector<int>v) { int sum = 0 ;for (int i=0;i<v.size();++i) sum+=v[i]; return sum; }
 
 
 //..............................................................................................................................................................
 
- 
+
 /* Main()  function */
 int32_t main() {
- 
+
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    
-    int tc=1;
-    cin>>tc;
- 
-    while(tc--){
-       int n;
-       cin>>n;
-
-       mvi v(n);
-       
-       int zero=0;
-
-       forn(i,0,n) {
-        cin>>v[i];
-        if(v[i]==0) zero++;
-       }
-       
-       int ans = 0;
-
-       mvi p(n);
-
-       p[0]=v[0];
-
-       forn(i,1,n) p[i]=v[i]+p[i-1];
-
-
-      
-     set<int> st;
-     st.insert(0);
-
-     
-     int sum = 0;
- 
-      forn(i,0,n){
-          
-        sum+=v[i];
-
-        if((st.find(sum)!=st.end())){
-             
-            ans++;
-            sum=0;
-            st.clear();
-            st.insert(0);
-          
+ ll t;
+    cin>>t;
+    while(t--) {
+        ll n,ans = 1;
+        cin>>n;
+        vector < ll > a(n),b(n),res(n);
+        for(ll i = 0 ; i < n ; i++) {
+            cin>>a[i];
         }
-        else  st.insert(sum);
-      }
-       
+        for(ll i = 0 ; i < n ; i++) {
+            cin>>b[i];
+        }
+        sort(b.begin(),b.end());
+        sort(a.begin(),a.end());
+        ll j = 0;
+        for(ll i = 0 ; i < n ; i++) {
+            while(a[j] <= b[i] and j!=n) {
+                j++;
+            }
+            if(j!=n)
+                res[i] = n-j;
+        }
+        
+        sort(res.begin(),res.end());
+        for(ll i = 0 ; i < (ll)res.size() ; i++) {
+            ans = ((ans%mod)*((res[i]-i)%mod))%mod;
+        }
         cout<<ans<<endl;
-
-
-  
-
     }
- 
-    return 0;
-}
+    return 0;     
+ }        
