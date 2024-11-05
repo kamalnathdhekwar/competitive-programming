@@ -3,8 +3,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-// #define ll         long long int
-#define int            int64_t
+#define ll         long long int
+// #define int            int64_t
 #define all(x)        x.begin(),x.end()
 #define rall(x)       x.rbegin(),x.rend()
 #define forn(i,a,b)   for(int i = a ; i<b ; i++)
@@ -34,18 +34,58 @@ int sumv(vector<int>v) { int sum = 0 ;for (int i=0;i<v.size();++i) sum+=v[i]; re
 //..............................................................................................................................................................
 
 
-int32_t main() {
-
+int solve()
+{
+    ll n,k;
+    cin>>n>>k;
+    ll a,b;
+    map<ll,ll> mp;
+ 
+    forn(i,0,k){cin>>a>>b;
+        mp[a]+=b;
+    }
+ 
+    mvi v;
+ 
+    for(auto  &x: mp){
+ 
+ 
+ 
+        v.pb(x.second);
+    }
+ 
+    sort(v.begin(),v.end());
+ 
+    ll jj = v.size()-1;
+ 
+    ll ans =0;
+ 
+ 
+    while(jj > -1 && n>0){
+        ans+=v[jj];
+        jj--;
+        n--;
+    }
+    cout<<ans<<endl;
+ 
+ 
+ 
+    return 0;
+}
+/* Main() function */
+int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-
-    int t;
-    cin>>t;
-    while(t--){
-       
-
+ 
+    int tc = 1;
+    cin >> tc;
+ 
+    while (tc--) {
+        solve();
     }
-
+ 
+    return 0;
+}
 
     
   
