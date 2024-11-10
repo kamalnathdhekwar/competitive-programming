@@ -47,16 +47,20 @@ int32_t main() {
        int a,b;
        cin>>a>>b;
 
-       int s01 = 0;
-       int s10=0;
+       int zero = 0;
+       int one=0;
        
-       sort(all(s));
+      // sort(all(s));
 
        int n = s.length();
        
        int flag = 0;
        forn(i,0,n) {
-        if(s[i]-'0'!=0 && s[i]-'0'!=1) flag = 1;
+        if(s[i]=='0') zero++;
+        else if(s[i]=='1') one++;
+        else flag=1;
+
+        //if(s[i]-'0'!=0 && s[i]-'0'!=1) flag = 1;
        }
 
        if(flag==1) {
@@ -64,13 +68,12 @@ int32_t main() {
         continue;
        }
 
-       forn(i,0,n-1){
-          if(s.substr(i,2)=="01") s01++;
-          else if(s.substr(i,2)=="10") s10++;
-       }
+       if(zero==n || one==n) cout<<0;
+       else cout<<min(a,b);
+       nn;
 
 
-       cout<<min(s10,s01)*max(a,b)+max(s10,s01)*min(a,b)<<endl;
+       //cout<<min(s10,s01)*max(a,b)+max(s10,s01)*min(a,b)<<endl;
 
 
     }
