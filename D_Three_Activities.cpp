@@ -3,8 +3,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-#define ll         long long int
-// #define int            int64_t
+// #define ll         long long int
+#define int            int64_t
 #define all(x)        x.begin(),x.end()
 #define rall(x)       x.rbegin(),x.rend()
 #define forn(i,a,b)   for(int i = a ; i<b ; i++)
@@ -33,41 +33,178 @@ int sumv(vector<int>v) { int sum = 0 ;for (int i=0;i<v.size();++i) sum+=v[i]; re
 
 //..............................................................................................................................................................
 
-int main(){
-ll t;
+
+int32_t main() {
+
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    int t;
     cin>>t;
     while(t--){
-        ll n,res = 0;
-        cin>>n;
-        vector < ll > a(n),b(n),c(n);
-        vector < pair < ll, ll > > va,vb,vc;
-        pair < ll, ll > bkp,bkp2;
-        for(ll i = 0 ; i < n ; i++) {
-            cin>>a[i];
-            va.pb(make_pair(a[i],i));
+       int n ;
+       cin>>n;
+       mvi a(n),b(n),c(n);
+
+       forn(i,0,n) cin>>a[i];
+       forn(i,0,n) cin>>b[i];
+       forn(i,0,n) cin>>c[i];
+       
+
+       int m1 = mx(a);
+       int m2 = mx(b);
+       int m3 = mx(c);
+
+       int k1 = -1 , k2=-1,  k3=-1;
+
+
+       if(m1>=m2 && m1>=m3){
+          
+          forn(i,0,n){
+           if(m1==a[i]){
+            k1=i;
+          }
         }
-        for(ll i = 0 ; i < n ; i++) {
-            cin>>b[i];
-            vb.pb(make_pair(b[i],i));
+
+       }
+       else if(m2>m1 && m2>m3){
+            
+        forn(i,0,n){
+        if( m2==b[i]){
+            k2=i;
         }
-        for(ll i = 0 ; i < n ; i++) {
-            cin>>c[i];
-            vc.pb(make_pair(c[i],i));
+       }
+       }
+       else {
+          
+          forn(i,0,n){
+        if( m3==c[i]){
+            k3=i;
         }
-        sort(va.begin(),va.end(),greater <> ());
-        sort(vb.begin(),vb.end(),greater <> ());
-        sort(vc.begin(),vc.end(),greater <> ());
- 
-        for(ll i = 0 ; i < 3 ; i++) {
-            for(ll j = 0 ; j < 3 ; j++) {
-                for(ll k = 0 ; k < 3 ; k++) {
-                    if(va[i].second!=vb[j].second and va[i].second!=vc[k].second and vb[j].second!=vc[k].second) {
-                        res = max(va[i].first+vb[j].first+vc[k].first,res);
-                    }
+
+       }
+       }
+
+      
+      int m22=-1;
+      int m33=-1;
+      int m11=-1;
+
+       if(k1!=-1){
+         
+         if(m2>m3){
+            
+            forn(i,0,n){
+             if(b[i]>m22 && i!=k1){
+                m22=b[i];
+                k2=i;
+             }
+
+           }
+
+         }
+         else {
+             
+             forn(i,0,n){
+                if(c[i]>m33 && i!=k1){
+                    m33=c[i];
+                    k3=i;
                 }
-            }
-        }
-        cout<<res<<endl;
+             }
+         }
+        
+       }
+
+       else if(k2!=-1){
+         
+         if(m1>m3){
+            
+            forn(i,0,n){
+             if(a[i]>m11 && i!=k2){
+                m11=a[i];
+                k1=i;
+             }
+
+           }
+         }
+         else {
+             
+             forn(i,0,n){
+                if(c[i]>m33 && i!=k1){
+                    m33=c[i];
+                    k3=i;
+                }
+             }
+         }
+        
+       }
+
+       else if(k3!=-1){
+         
+         if(m1>m2){
+            
+            forn(i,0,n){
+             if(a[i]>m11 && i!=k3){
+                m11=a[i];
+                k1=i;
+             }
+
+           }
+         }
+         else {
+             
+             forn(i,0,n){
+                if(b[i]>m22 && i!=k3){
+                    m22=b[i];
+                    k2=i;
+                }
+             }
+         }
+        
+       }
+
+       int m333=-1;
+       m22=-1;
+       m11=-1;
+
+
+       if(k3==-1){
+             
+             forn(i,0,n){
+                if(c[i]>m333 && i!=k1 && i!=k2){
+                    m333=c[i];
+                    k3=i;
+                }
+             }
+         }
+       if(k2==-1){
+                forn(i,0,n){
+                if(b[i]>m22 && i!=k1 && i!=k3){
+                    m22=b[i];
+                    k2=i;
+                }
+             }
+         }
+          if(k1==-1){
+                forn(i,0,n){
+                if(a[i]>m11 && i!=k2 && i!=k3){
+                    m11=a[i];
+                    k1=i;
+                }
+             }
+         }
+        
+
+       
+      // cout<<k1<<" "<<k2<<" "<<k3<<endl;
+      
+       cout<<a[k1]+b[k2]+c[k3]<<endl;
+
+
+
     }
-    return 0;     
- }
+
+
+    
+    return 0;
+}
