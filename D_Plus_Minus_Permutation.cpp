@@ -49,13 +49,31 @@ int32_t main() {
        int sumx = 0;
        int sumy = 0;
 
-       forn(i,0,n){
-        if(i%x==0) sumx+=i+1;
-        
-        else if(i%y==0) sumy+=i+1;
-       }
+       int a = n/x;
+       int b = n/y;
 
-       cout<<sumx-sumy<<endl;
+       int lcm = (x*y)/(__gcd(x,y));
+
+       int c = n/lcm;
+
+       int al = a-c;
+       int bl = b-c;
+
+       cout<<((n*(n+1))/2 - ((n-al)*((n-al)+1))/2) - (bl*(bl+1))/2;
+
+       nn;
+
+
+
+
+    //    forn(i,0,n){
+    //     if((i+1)%x==0) sumx+=i+1;
+        
+    //     else if((i+1)%y==0) sumy+=i+1;
+    //    }
+
+
+      // cout<<sumx-sumy<<endl;
 
     }
 
