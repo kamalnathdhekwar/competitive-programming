@@ -39,28 +39,66 @@ int32_t main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-   int n;
-	int cash=1;
-	int max=1;
-	cin>>n;
-	int h0,m0;
-	cin>>h0>>m0; 
-	int h,m;
-	while(--n){
-	    cin>>h>>m;
-	    if(h0==h && m0==m){
-	        cash++;
-	        if(cash>max){
-	            max=cash;
-	        }
-	    }else{
-	        cash=1;
-	    }
-	    h0=h;
-	    m0=m;
-	}
-	cout<<max;
-	return 0;
+     int n ;
+     cin>>n;
+
+     mvi v(n);
+     
+     int ans = 0;
+     
+    
+     forn(i,0,n) {
+        cin>>v[i];
+        if(v[i]<=0) {
+            ans+=abs(v[i])+1;
+            v[i]+=abs(v[i])+1;
+        }
+     }
+
+    
+
+     forn(i,0,n) {
+        if(v[i]<=0) {
+            ans+=abs(v[i])+1;
+            v[i]+=abs(v[i])+1;
+        }
+     }
+
+     sort(all(v));
+      mvi vv=v;
+    
+   
+
+     forn(i,0,n-1){
+        if(v[i+1]-v[i]==0) {
+            v[i+1]++;
+           // ans++;
+        }
+         if(v[i+1]-v[i]>1){
+           // ans+=v[i+1]-v[i]-1;
+            v[i+1]=v[i]+1;
+        }
+         if(v[i]>v[i+1]){
+           // ans+=v[i]+1;
+            v[i+1]=v[i]+1;
+        }
+     }
+
+      //forn(i,0,n) cout<<v[i]<<" ";
+       
+       
+     
+      forn(i,0,n){
+        ans+=abs(v[i]-vv[i]);
+      }
+     nn;
+
+    
+     
+     cout<<ans<<endl;
+     
+
+
 
     
     return 0;
