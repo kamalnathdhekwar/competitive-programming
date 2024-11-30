@@ -42,70 +42,34 @@ int32_t main() {
     int t;
     cin>>t;
     while(t--){
-       int n,k;
-       cin>>n>>k;
-
-       mvi v(n);
-
-       forn(i,0,n) cin>>v[i];
-
-       set<int> st;
-
-       fora(x,v) st.insert(x);
-
-       int ans = 0;
-
-       fora(x,st){
-
-         int prev = 0;
-         int next = 0;
-         
-         vector<int> t;
-         forn(i,0,n){
-            if(v[i]==x){
-                prev=i;
-                break;
+        int n, k;
+        cin >> n >> k;
+        vector<vector<int>> gaps(n+1);
+        vector<int> pre(n+1, 0);
+        vector<int> a(n+1, 0);
+        for (int i = 1; i <= n; ++i) {
+            pre[i] = 0;
+            gaps[i] = vector<int>();
+        }
+        for (int i = 1; i <= n; ++i) {
+            cin >> a[i];
+        }
+        for (int i = 1; i <= n; ++i) {
+            gaps[a[i]].push_back(i - pre[a[i]] - 1);
+            pre[a[i]] = i;
+        }
+        int mn = INT_MAX;
+        for (int i = 1; i <= k; ++i) {
+            gaps[i].push_back(n - pre[i]);
+            sort(gaps[i].rbegin(), gaps[i].rend());
+            int res = gaps[i][0] / 2;
+            if (gaps[i].size() >= 2) {
+                res = max(res, gaps[i][1]);
             }
-         }
-        
-         forn(i,0,n) {
-            if(v[i]==x && i!=prev) {
-                next = i;
-                break;
-            }
-         }
-
-         t.pb(prev-0);
-
-         while(next<n){
-            
-            if(v[prev]==x && v[next]==x){
-                t.pb(next-prev);
-            }
-            if(v[next]!=x){
-                next++;
-            }
-            if(v[prev]!=x) {
-                prev++;
-               // continue;
-            }
-         }
-
-         t.pb(n-next);
-
-         sort(all(t));
-         int m = t.size();
-         ans = min(ans,max(t[m-2],t[m-1]/2));
-
-       }
-
-       cout<<ans<<endl;
-
-
-
+            mn = min(mn, res);
+        }
+        cout << mn << endl;
     }
-
-
-    
     return 0;
 }
+
