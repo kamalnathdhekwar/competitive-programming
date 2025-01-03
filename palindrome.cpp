@@ -57,7 +57,7 @@ int sumv(vector<int>v) { int sum = 0 ;for (int i=0;i<v.size();++i) sum+=v[i]; re
 
         for(int i = 0 ; i<s.length() ; i++){
             for(int j = i ; j<s.length() ; j++){
-                v.push_back(s.substr(i,j));
+                v.push_back(s.substr(i,j-i+1));
             }
         }
         
@@ -69,7 +69,7 @@ int sumv(vector<int>v) { int sum = 0 ;for (int i=0;i<v.size();++i) sum+=v[i]; re
             }
         }
 
-        return v[2];
+        return ans;
     }
 
 int32_t main() {
@@ -81,20 +81,10 @@ int32_t main() {
     string s;
     cin>>s;
 
-    //cout<<longestPalindrome( s)<<endl;
+    cout<<longestPalindrome(s)<<endl;
 
     
-        vector<string> v;
         
-        //if(s.length()==1) return s;
-
-        for(int i = 0 ; i<s.length() ; i++){
-            for(int j = i; j<s.length() ; j++){
-                v.push_back(s.substr(i,j-i+1));
-            }
-        }
-
-        forn(i,0,v.size()) cout<<v[i]<<" ";
 
     
     return 0;
